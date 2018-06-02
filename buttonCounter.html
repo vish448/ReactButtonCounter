@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>ButtonCounterIncrement</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+    <!-- Button Class -->
+    class Button extends React.Component{
+      handleClick = () => {
+        this.props.onClickFunction(this.props.incrementValue);
+      };
+     
+      render(){
+        return(
+            <button onClick={this.handleClick}>
+             +{this.props.incrementValue}
+            </button>
+          );
+        }
+      }
+
+    <!-- Result Function -->
+    const Result = (props) => {
+      return(
+       <div>{props.counter} </div>
+      )
+    }
+
+    <!-- App Component -->
+  class App extends React.Component{
+    state = {counter : 1};
+
+    incrementCounter = (incrementValue) => {
+      this.setState({
+        counter: this.state.counter + incrementValue
+        }
+      );
+    }
+    render(){
+      return(
+        <div>
+          <Button incrementValue = {1} onClickFunction = {this.incrementCounter} />
+          <Button incrementValue = {5} onClickFunction = {this.incrementCounter} />
+          <Button incrementValue = {10} onClickFunction = {this.incrementCounter} />
+          <Button incrementValue = {100} onClickFunction = {this.incrementCounter} />
+          <Result counter = {this.state.counter}/>
+        </div>
+      )
+    };
+  }
+
+  ReactDOM.render(<App />, document.querySelector('div'));
+
+  </script>
+
+  </body>
+</html>
