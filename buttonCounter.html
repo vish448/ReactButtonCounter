@@ -11,7 +11,7 @@
     <div id="root"></div>
     <script type="text/babel">
 
-    <!-- Button Class -->
+    /* Button Class */
     class Button extends React.Component{
       handleClick = () => {
         this.props.onClickFunction(this.props.incrementValue);
@@ -26,14 +26,14 @@
         }
       }
 
-    <!-- Result Function -->
+    /* Result Function */
     const Result = (props) => {
       return(
        <div>{props.counter} </div>
       )
     }
 
-    <!-- App Component -->
+    /* App Component */
   class App extends React.Component{
     state = {counter : 1};
 
