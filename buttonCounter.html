@@ -29,7 +29,7 @@
     /* Result Function */
     const Result = (props) => {
       return(
-       <div>{props.counter} </div>
+       <div>Result: {props.counter} </div>
       )
     }
 
@@ -46,6 +46,8 @@
     render(){
       return(
         <div>
+          <h1>Button Counter</h1>
+          <h3>Click on button to see the counter in the result</h3>
           <Button incrementValue = {1} onClickFunction = {this.incrementCounter} />
           <Button incrementValue = {5} onClickFunction = {this.incrementCounter} />
           <Button incrementValue = {10} onClickFunction = {this.incrementCounter} />
